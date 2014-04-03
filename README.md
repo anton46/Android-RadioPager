@@ -56,3 +56,9 @@ Simple example
 }
 ```
 
+Developed By
+=============
+
+* Anton Nurdin Tuhadiansyah anton.work19@gmail.com
+* Ronald Savianto
+
