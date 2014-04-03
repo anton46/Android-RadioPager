@@ -1,15 +1,12 @@
 package id.co.anton19.radiopager;
 
 import id.co.anton19.radiopager.RadioPagerView.OnValueChangeListener;
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class MainActivity extends Activity {
 	private RadioPagerView mCustomBar;
 	private ImageView mImage;
