@@ -1,8 +1,17 @@
 package id.co.anton19.radiopager;
 
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorSet;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.Animator.AnimatorListener;
+
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.view.animation.AccelerateInterpolator;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ImageUtil {
 	
@@ -42,6 +51,80 @@ public class ImageUtil {
     }
 
     return inSampleSize;
-}
+
+	}
+	
+	public static void moveImage(final Context activity, float X, final ImageView mImage, final TextView mText, final String name, final int logo) {
+		//Move
+		ObjectAnimator obj = ObjectAnimator.ofFloat(mImage,"X",X);
+		obj.setInterpolator(new AccelerateInterpolator(2f));
+		
+		//Fade out
+		ObjectAnimator fadeOut = ObjectAnimator.ofFloat(mImage, "alpha", 0);
+		fadeOut.setDuration(150);
+		
+		//Fade in
+		final ObjectAnimator fadeIn = ObjectAnimator.ofFloat(mImage, "alpha", 1);
+		fadeIn.setDuration(150);
+		
+		fadeOut.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator arg0) {
+				mImage.setImageBitmap(decodeSampledBitmapFromResource(activity.getResources(), logo, 100, 100));
+				fadeIn.start();
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		AnimatorSet animSet = new AnimatorSet();
+		animSet.setDuration(300);
+		animSet.playTogether(obj,fadeOut);
+		
+		animSet.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator arg0) {
+				mText.setText(name);
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		animSet.start();
+	}
 
 }

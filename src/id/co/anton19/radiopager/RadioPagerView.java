@@ -19,7 +19,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CustomBarView extends View {
+public class RadioPagerView extends View {
 	private Paint paint = new Paint();
 	private int mNumOfCircle = 2;
 	private Bitmap mThumbImage = null;
@@ -44,14 +44,14 @@ public class CustomBarView extends View {
 	private int mPosition;
 	private float mThumbBestXPosition;
 	
-	public CustomBarView(Context context) {
+	public RadioPagerView(Context context) {
 		super(context);
 	}
 	
-	public CustomBarView(Context context, AttributeSet attrs) {
+	public RadioPagerView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		TypedArray a = context.obtainStyledAttributes(attrs,
-			    R.styleable.CustomBarView);
+			    R.styleable.RadioPagerView);
 			 
 			final int N = a.getIndexCount();
 			for (int i = 0; i < N; ++i)
@@ -59,10 +59,10 @@ public class CustomBarView extends View {
 			    int attr = a.getIndex(i);
 			    switch (attr)
 			    {
-			        case R.styleable.CustomBarView_numOfCircle:
+			        case R.styleable.RadioPagerView_numOfCircle:
 			            mNumOfCircle = a.getInt(attr, 2);
 			            break;
-			        case R.styleable.CustomBarView_thumbImageSrc:
+			        case R.styleable.RadioPagerView_thumbImageSrc:
 			            int bitmap = a.getResourceId(attr, 0);
 			            mThumbImage = BitmapFactory.decodeResource(getResources(), bitmap);
 			            mLineHeight = 0.25f * mThumbImage.getHeight();
@@ -75,7 +75,7 @@ public class CustomBarView extends View {
 			a.recycle();
 	}
 	
-	public CustomBarView(Context context, AttributeSet attrs, int defStyle) {
+	public RadioPagerView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 	}
 	
@@ -308,7 +308,7 @@ public class CustomBarView extends View {
     }
     
     public interface OnValueChangeListener {
-        public void onValuesChanged(CustomBarView bar, int position, float xPostion);
+        public void onValuesChanged(RadioPagerView bar, int position, float xPosition);
     }
 }
 

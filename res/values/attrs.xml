@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="CustomBarView">
+    <declare-styleable name="RadioPagerView">
         <attr name="numOfCircle" format="integer" />
         <attr name="thumbImageSrc" format="reference" />
     </declare-styleable>

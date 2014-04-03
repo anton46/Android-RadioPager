@@ -21,7 +21,7 @@
             android:layout_marginTop="10dp"
             />
 
-        <id.co.anton19.radiopager.CustomBarView
+        <id.co.anton19.radiopager.RadioPagerView
             android:id="@+id/custom_bar_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
