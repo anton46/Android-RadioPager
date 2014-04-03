@@ -25,3 +25,8 @@ Simple example
 
 ```
 
+Developed by
+====================
+* Anton Nurdin Tuhadiansyah (anton.work19@gmail.com)
+* Ronald Savianto
+
